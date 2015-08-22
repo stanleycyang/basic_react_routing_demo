@@ -9,11 +9,12 @@ import Login from './components/Login';
 
 const routes = (
   <Route name='app' path='/' handler={ChatApp}>
+    // Use DefaultRoute handler to set the default home page
     <Route name='login' path='/login' handler={Login}/>
   </Route>
 );
 
-Router.run(routes, function (Handler) {
+Router.run(routes, Router.HistoryLocation, function (Handler) {
   React.render(<Handler/>, document.body);
 });
 
